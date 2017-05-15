@@ -8,7 +8,7 @@
  * Controller of the 2017NewMembersApp
  */
 angular.module('2017NewMembersApp')
-.controller('MainCtrl', function ($scope) {
+.controller('MainCtrl', function ($scope, $http) {
 	var self = this;
 	self.data = {
 		name:'',
@@ -22,7 +22,12 @@ angular.module('2017NewMembersApp')
 	};
 	
 	self.submit = function() {
-	
+		//todo :loading
+		$http.post('http://www.mengyunzhi.cn:8001', $scope.data)
+		.then(function success() {
+			//todo: endloading
+		});
+		
 	};
 	
 	$scope.data = self.data;
