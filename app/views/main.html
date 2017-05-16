@@ -1,70 +1,90 @@
-<div class="weui-cells__title">基本信息</div>
-<div class="weui-cells weui-cells_form">
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" type="text" placeholder="请输入姓名" ng-model="data.name">
+<div ng-controller="MainCtrl">
+    <div class="weui-cells__title">基本信息</div>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell weui-cell_vcode">
+            <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入学号" ng-model="data.number">
+            </div>
+            <div class="weui-cell__ft">
+                <button class="weui-vcode-btn" ng-click="getByNumber()">获取填报数据</button>
+            </div>
         </div>
-    </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd">
-            <label class="weui-label" typeof="">手机号</label>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入姓名" ng-model="data.name">
+            </div>
         </div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" type="number" ng-model="data.phone" pattern="[0-9]*" placeholder="请输入号码">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label" typeof="">手机号</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" ng-model="data.phone" pattern="[0-9]*" placeholder="请输入号码">
+            </div>
         </div>
-    </div>
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
-        <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
-        <div class="weui-cell__bd">
-            <select class="weui-select" ng-model="data.sex">
-                <option value="男">男</option>
-                <option value="女">女</option>
-            </select>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label" typeof="">电子邮箱</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="email" ng-model="data.email" placeholder="请输入地址">
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" ng-model="data.sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">年级</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" ng-model="data.grade">
+                    <option value="大一">大一</option>
+                    <option value="大二">大二</option>
+                    <option value="大三">大三</option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">专业</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" ng-model="data.major" placeholder="请输入名称">
+            </div>
         </div>
     </div>
 
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
-        <div class="weui-cell__hd">
-            <label class="weui-label">年级</label>
+    <div class="weui-cells__title">扩展信息</div>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__bd">双学位</div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" ng-model="data.doubleDegree"  type="checkbox">
+            </div>
         </div>
-        <div class="weui-cell__bd">
-            <select class="weui-select" ng-model="data.grade">
-                <option value="大一">大一</option>
-                <option value="大二">大二</option>
-                <option value="大三">大三</option>
-            </select>
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__bd">担任班干部</div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" ng-model="data.classCadre" type="checkbox">
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__bd">担任社团职务</div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" ng-model="data.communityCadre" type="checkbox">
+            </div>
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label">专业</label></div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" type="text" ng-model="data.major" placeholder="请输入所学专业">
-        </div>
+    <div class="weui-btn-area">
+        <a ng-show="data.name && data.number && data.phone && data.email && data.major" class="weui-btn weui-btn_primary" ng-click="submit()" href="javascript:">提交</a>
     </div>
 </div>
 
-<div class="weui-cells__title">扩展信息</div>
-<div class="weui-cells weui-cells_form">
-    <div class="weui-cell weui-cell_switch">
-        <div class="weui-cell__bd">双学位</div>
-        <div class="weui-cell__ft">
-            <input class="weui-switch" ng-model="data.isDoubleDegree"  type="checkbox">
-        </div>
-    </div>
-    <div class="weui-cell weui-cell_switch">
-        <div class="weui-cell__bd">担任班干部</div>
-        <div class="weui-cell__ft">
-            <input class="weui-switch" ng-model="data.isClassCadre" type="checkbox">
-        </div>
-    </div>
-    <div class="weui-cell weui-cell_switch">
-        <div class="weui-cell__bd">担任社团职务</div>
-        <div class="weui-cell__ft">
-            <input class="weui-switch" ng-model="data.isCommunityCadre" type="checkbox">
-        </div>
-    </div>
-</div>
-<div class="weui-btn-area">
-    <a class="weui-btn weui-btn_primary" ng-click="submit()" href="javascript:">提交</a>
-</div>

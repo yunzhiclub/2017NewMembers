@@ -8,28 +8,39 @@
  * Controller of the 2017NewMembersApp
  */
 angular.module('2017NewMembersApp')
-.controller('MainCtrl', function ($scope, $http) {
+.controller('MainCtrl', function ($scope, $http, $location) {
 	var self = this;
 	self.data = {
 		name:'',
+		number: '',
 		phone:'',
+		email:'',
 		sex:'男',
 		grade:'大一',
 		major:'',
-		isDoubleDegree:false,
-		isClassCadre:false,
-		isCommunityCadre:false
+		doubleDegree:false,
+		classCadre:false,
+		communityCadre:false
 	};
 	
 	self.submit = function() {
-		//todo :loading
-		$http.post('http://www.mengyunzhi.cn:8001', $scope.data)
-		.then(function success() {
-			//todo: endloading
-		});
+		$location.path('/success');
+		// $http.post('http://www.mengyunzhi.cn:8001//Student/', $scope.data)
+		// .then(function success(response) {
+		// 	$location.path('/success');
+		// });
 		
+	};
+	
+	self.getByNumber = function () {
+		$http.get('http://www.mengyunzhi.cn:8001/Student/getByNum')
+		.then(function success(response) {
+			var data = response.data;
+			console.log(data);
+		});
 	};
 	
 	$scope.data = self.data;
 	$scope.submit = self.submit;
+	$scope.getByNumber = self.getByNumber;
 });

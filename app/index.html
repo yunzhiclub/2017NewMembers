@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -8,41 +8,50 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/weui/dist/style/weui.css" />
+    <link rel="stylesheet" href="bower_components/weui/dist/style/weui.css"/>
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="2017NewMembersApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">对不起，您的浏览器版本过低</p>
-    <![endif]-->
-    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
-    <!-- Add your site or application content here -->
+</head>
+<body ng-app="2017NewMembersApp">
+<!--[if lte IE 8]>
+<p class="browsehappy">对不起，您的浏览器版本过低</p>
+<![endif]-->
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<!-- Add your site or application content here -->
 
-    <div class="container-fluid" id="container">
-    <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+<div class="container-fluid" id="container">
+    <ui-view></ui-view>
+    <div class="weui-msg__extra-area">
+        <div class="weui-footer">
+            <p class="weui-footer__links">
+                <a href="javascript:void(0);" class="weui-footer__link">河北工业大学 梦云智软件开发团队</a>
+            </p>
+            <p class="weui-footer__text">Copyright © 2014-2017 梦云智</p>
+        </div>
     </div>
-
-    <div class="page__ft">
-        河北工业大学 梦云智软件开发团队
-    </div>
+</div>
 
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/success.js"></script>
+<!-- endbuild -->
 </body>
 </html>
