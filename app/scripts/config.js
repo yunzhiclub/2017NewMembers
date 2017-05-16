@@ -17,6 +17,7 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	.state('main', {
 		url: '/',
 		templateUrl: 'views/main.html',
+		cache:true,
 		data: {
 			pageTitle: '首页'
 		}

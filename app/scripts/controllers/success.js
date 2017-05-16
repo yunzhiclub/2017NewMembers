@@ -8,7 +8,7 @@
  * Controller of the 2017NewMembersApp
  */
 angular.module('2017NewMembersApp')
-  .controller('SuccessCtrl', function ($scope) {
+  .controller('SuccessCtrl', function ($scope, $state) {
   	var self = this;
   	self.close = function () {
 	    window.opener = null;
@@ -16,5 +16,10 @@ angular.module('2017NewMembersApp')
 	    window.close();
     };
     
+  	self.back = function () {
+	    $state.go('main');
+    };
+  	
   	$scope.close = self.close;
+  	$scope.back = self.back;
   });

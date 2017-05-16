@@ -1,13 +1,10 @@
 <div ng-controller="MainCtrl">
     <div class="weui-cells__title">基本信息</div>
     <div class="weui-cells weui-cells_form">
-        <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
             <div class="weui-cell__bd">
                 <input class="weui-input" type="text" placeholder="请输入学号" ng-model="data.number">
-            </div>
-            <div class="weui-cell__ft">
-                <button class="weui-vcode-btn" ng-click="getByNumber()">获取填报数据</button>
             </div>
         </div>
         <div class="weui-cell">
@@ -16,7 +13,7 @@
                 <input class="weui-input" type="text" placeholder="请输入姓名" ng-model="data.name">
             </div>
         </div>
-        <div class="weui-cell">
+        <div class="weui-cell ">
             <div class="weui-cell__hd">
                 <label class="weui-label" typeof="">手机号</label>
             </div>
@@ -67,7 +64,7 @@
         <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__bd">双学位</div>
             <div class="weui-cell__ft">
-                <input class="weui-switch" ng-model="data.doubleDegree"  type="checkbox">
+                <input class="weui-switch" ng-model="data.doubleDegree" type="checkbox">
             </div>
         </div>
         <div class="weui-cell weui-cell_switch">
@@ -84,7 +81,8 @@
         </div>
     </div>
     <div class="weui-btn-area">
-        <a ng-show="data.name && data.number && data.phone && data.email && data.major" class="weui-btn weui-btn_primary" ng-click="submit()" href="javascript:">提交</a>
+        <a ng-show="data.name && data.number && data.phone && data.email && data.major"
+           class="weui-btn weui-btn_primary" ng-click="submit()" href="javascript:">提交</a>
     </div>
 </div>
 
