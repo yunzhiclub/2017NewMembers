@@ -81,8 +81,7 @@
         </div>
     </div>
     <div class="weui-btn-area">
-        <a ng-show="data.name && data.number && data.phone && data.email && data.major"
-           class="weui-btn weui-btn_primary" ng-click="submit()" href="javascript:">提交</a>
+        <a class="weui-btn weui-btn_primary {{submitDisabledClass}}" ng-click="submit()" href="javascript:">提交</a>
     </div>
 </div>
 
